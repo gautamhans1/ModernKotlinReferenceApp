@@ -6,7 +6,7 @@
     <data>
         <variable
             name="repository"
-            type="com.example.gautam.googlesamplesfetcher.Repository" />
+            type="com.example.gautam.googlesamplesfetcher.uimodel.Repository" />
     </data>
 
     <android.support.constraint.ConstraintLayout

@@ -1,7 +1,8 @@
-package com.example.gautam.googlesamplesfetcher
+package com.example.gautam.googlesamplesfetcher.uimodel
 
 import android.databinding.BaseObservable
 import android.databinding.Bindable
+import com.example.gautam.googlesamplesfetcher.BR
 
 class Repository(
     repositoryName: String, var repositoryOwner: String?,
