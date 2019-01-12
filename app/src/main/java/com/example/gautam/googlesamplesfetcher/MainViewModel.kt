@@ -6,8 +6,8 @@ import com.example.gautam.googlesamplesfetcher.data.RepoModel.OnDataReadyCallbac
 
 class MainViewModel {
     var repoModel: RepoModel = RepoModel()
-    val text = ObservableField<String>()
-    var isLoading = ObservableField<Boolean>()
+    val text = ObservableField("old data")
+    var isLoading = ObservableField(false)
 
     fun refresh() {
         isLoading.set(true)
