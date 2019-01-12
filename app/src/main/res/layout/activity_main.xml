@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.view.View"/>
         <variable
-            name="repository"
-            type="com.example.gautam.googlesamplesfetcher.uimodel.Repository" />
+            name="viewModel"
+            type="com.example.gautam.googlesamplesfetcher.MainViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -21,7 +22,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:textSize="20sp"
-            android:text="@{repository.repositoryName}"
+            android:text="@{viewModel.text}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -29,6 +30,13 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.083"
             tools:text="Repo Name" />
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isLoading ? false : true}"
+            />
 
         <TextView
             android:id="@+id/repository_has_issues"
