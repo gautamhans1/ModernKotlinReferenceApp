@@ -1,4 +1,4 @@
-package com.example.gautam.googlesamplesfetcher.uimodel
+package com.example.gautam.googlesamplesfetcher.data
 
 import android.os.Handler
 
