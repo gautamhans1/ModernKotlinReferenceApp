@@ -10,21 +10,15 @@ import com.example.gautam.googlesamplesfetcher.uimodel.Repository
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    var repository = Repository(
-        "Git Repo", "Gautam Hans",
-        1000, true
-    )
+
+    var mainViewModel = MainViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.repository = repository
+        binding.viewModel = mainViewModel
         binding.executePendingBindings()
-
-        Handler().postDelayed({repository.repositoryName="GGWP"
-        }, 2000)
-
     }
 }
