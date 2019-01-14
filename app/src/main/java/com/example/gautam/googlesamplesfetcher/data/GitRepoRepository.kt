@@ -1,14 +1,14 @@
 package com.example.gautam.googlesamplesfetcher.data
 
+import com.example.gautam.googlesamplesfetcher.androidmanagers.NetManager
 import com.example.gautam.googlesamplesfetcher.data.GitRepoRemoteDataSource.OnRepoRemoteReadyCallback
 import com.example.gautam.googlesamplesfetcher.uimodel.Repository
 
 
 class GitRepoRepository {
 
-    var localDataSource = GitRepoLocalDataSource()
-    var remoteDataSource = GitRepoRemoteDataSource()
-
+    val localDataSource = GitRepoLocalDataSource()
+    val remoteDataSource = GitRepoRemoteDataSource()
 
     fun getRepositories(onRepositoryReadyCallback: OnRepositoryReadyCallback) {
         remoteDataSource.getRepositories(object : OnRepoRemoteReadyCallback {
