@@ -3,12 +3,12 @@ package com.example.gautam.googlesamplesfetcher
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableField
-import com.example.gautam.googlesamplesfetcher.data.RepoModel
-import com.example.gautam.googlesamplesfetcher.data.RepoModel.OnRepositoryReadyCallback
+import com.example.gautam.googlesamplesfetcher.data.GitRepoRepository
+import com.example.gautam.googlesamplesfetcher.data.GitRepoRepository.OnRepositoryReadyCallback
 import com.example.gautam.googlesamplesfetcher.uimodel.Repository
 
 class MainViewModel : ViewModel() {
-    var repoModel: RepoModel = RepoModel()
+    var gitRepoRepository: GitRepoRepository = GitRepoRepository()
     val text = ObservableField("old data")
     var isLoading = ObservableField(false)
 
@@ -16,7 +16,7 @@ class MainViewModel : ViewModel() {
 
     fun loadRepositories() {
         isLoading.set(true)
-        repoModel.getRepositories(object : OnRepositoryReadyCallback {
+        gitRepoRepository.getRepositories(object : OnRepositoryReadyCallback {
             override fun onDataReady(data: ArrayList<Repository>) {
                 isLoading.set(false)
                 repositories.value = data
