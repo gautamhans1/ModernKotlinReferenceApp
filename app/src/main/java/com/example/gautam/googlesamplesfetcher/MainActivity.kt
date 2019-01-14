@@ -1,5 +1,6 @@
 package com.example.gautam.googlesamplesfetcher
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -7,9 +8,11 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.example.gautam.googlesamplesfetcher.adapters.RepositoryRecyclerViewAdapter
 import com.example.gautam.googlesamplesfetcher.databinding.ActivityMainBinding
+import com.example.gautam.googlesamplesfetcher.uimodel.Repository
 
 class MainActivity : AppCompatActivity(), RepositoryRecyclerViewAdapter.OnItemClickListener {
     lateinit var binding: ActivityMainBinding
+    private val repositoryRecyclerViewAdapter = RepositoryRecyclerViewAdapter(arrayListOf(), this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +24,10 @@ class MainActivity : AppCompatActivity(), RepositoryRecyclerViewAdapter.OnItemCl
         binding.executePendingBindings()
 
         binding.repositoryRv.layoutManager = LinearLayoutManager(this)
-        binding.repositoryRv.adapter = RepositoryRecyclerViewAdapter(viewModel.repositories, this)
+        binding.repositoryRv.adapter = repositoryRecyclerViewAdapter
+        viewModel.repositories.observe(
+            this,
+            Observer<ArrayList<Repository>> { it?.let { repositoryRecyclerViewAdapter.replaceData(it) } })
     }
 
     override fun onItemClick(position: Int) {
