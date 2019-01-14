@@ -1,14 +1,17 @@
 package com.example.gautam.googlesamplesfetcher
 
+import android.app.Application
+import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableField
+import com.example.gautam.googlesamplesfetcher.androidmanagers.NetManager
 import com.example.gautam.googlesamplesfetcher.data.GitRepoRepository
 import com.example.gautam.googlesamplesfetcher.data.GitRepoRepository.OnRepositoryReadyCallback
 import com.example.gautam.googlesamplesfetcher.uimodel.Repository
 
-class MainViewModel : ViewModel() {
-    var gitRepoRepository: GitRepoRepository = GitRepoRepository()
+class MainViewModel(application: Application) : AndroidViewModel(application) {
+
+    var gitRepoRepository: GitRepoRepository = GitRepoRepository(NetManager(getApplication()))
     val text = ObservableField("old data")
     var isLoading = ObservableField(false)
 

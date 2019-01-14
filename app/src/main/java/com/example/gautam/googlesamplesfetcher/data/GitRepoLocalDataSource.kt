@@ -5,13 +5,13 @@ import com.example.gautam.googlesamplesfetcher.uimodel.Repository
 import java.util.ArrayList
 
 class GitRepoLocalDataSource {
-    fun getRepositories(onDataReadyCallback: GitRepoRepository.OnRepositoryReadyCallback) {
+    fun getRepositories(onDataReadyCallback: OnRepoLocalReadyCallback) {
         var arrayList = ArrayList<Repository>()
-        arrayList.add(Repository("First", "Owner 1", 1000, false))
-        arrayList.add(Repository("Second", "Owner 2", 200, true))
-        arrayList.add(Repository("Third", "Owner 3", 3000, false))
+        arrayList.add(Repository("First from local", "Owner 1", 1000, false))
+        arrayList.add(Repository("Second from local", "Owner 2", 200, true))
+        arrayList.add(Repository("Third from local", "Owner 3", 3000, false))
 
-        Handler().postDelayed({ onDataReadyCallback.onDataReady(arrayList) }, 2000)
+        Handler().postDelayed({ onDataReadyCallback.onLocalDataReady(arrayList) }, 2000)
     }
 
     fun saveRepositories (arrayList : ArrayList<Repository>) {
