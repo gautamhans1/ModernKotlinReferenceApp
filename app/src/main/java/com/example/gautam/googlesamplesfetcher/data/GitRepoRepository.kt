@@ -5,10 +5,10 @@ import com.example.gautam.googlesamplesfetcher.uimodel.Repository
 import io.reactivex.Observable
 
 
-class GitRepoRepository(val netManager: NetManager) {
+class GitRepoRepository(private val netManager: NetManager) {
 
-    val localDataSource = GitRepoLocalDataSource()
-    val remoteDataSource = GitRepoRemoteDataSource()
+    private val localDataSource = GitRepoLocalDataSource()
+    private val remoteDataSource = GitRepoRemoteDataSource()
 
     fun getRepositories(): Observable<ArrayList<Repository>> {
 
