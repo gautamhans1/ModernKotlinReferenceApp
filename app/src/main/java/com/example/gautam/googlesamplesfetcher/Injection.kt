@@ -6,8 +6,13 @@ import com.example.gautam.googlesamplesfetcher.data.GitRepoRepository
 
 object Injection {
 
+    private var NET_MANAGER: NetManager? = null
+
     private fun provideNetManager(context: Context): NetManager {
-        return NetManager(context)
+        if (NET_MANAGER == null) {
+            NET_MANAGER = NetManager(context)
+        }
+        return NET_MANAGER!!
     }
 
     private fun gitRepoRepository(netManager: NetManager): GitRepoRepository {
