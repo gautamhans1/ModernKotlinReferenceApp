@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.example.gautam.googlesamplesfetcher.adapters.RepositoryRecyclerViewAdapter
+import com.example.gautam.googlesamplesfetcher.androidmanagers.NetManager
+import com.example.gautam.googlesamplesfetcher.data.GitRepoRepository
 import com.example.gautam.googlesamplesfetcher.databinding.ActivityMainBinding
 import com.example.gautam.googlesamplesfetcher.uimodel.Repository
 
@@ -19,7 +21,11 @@ class MainActivity : AppCompatActivity(), RepositoryRecyclerViewAdapter.OnItemCl
         setContentView(R.layout.activity_main)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        val repository = GitRepoRepository(NetManager(applicationContext))
+        val mainViewModelFactory = MainViewModelFactory(repository)
+        val viewModel = ViewModelProviders.of(this, mainViewModelFactory).
+            get(MainViewModel::class.java)
+
         binding.viewModel = viewModel
         binding.executePendingBindings()
 
