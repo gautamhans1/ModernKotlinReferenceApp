@@ -1,40 +1,23 @@
 package com.example.gautam.googlesamplesfetcher.data
 
-import android.content.Context
 import com.example.gautam.googlesamplesfetcher.androidmanagers.NetManager
-import com.example.gautam.googlesamplesfetcher.data.GitRepoRemoteDataSource.OnRepoRemoteReadyCallback
-import com.example.gautam.googlesamplesfetcher.data.GitRepoLocalDataSource.OnRepoLocalReadyCallback
 import com.example.gautam.googlesamplesfetcher.uimodel.Repository
+import io.reactivex.Observable
 
 
-class GitRepoRepository (val netManager: NetManager) {
+class GitRepoRepository(val netManager: NetManager) {
 
     val localDataSource = GitRepoLocalDataSource()
     val remoteDataSource = GitRepoRemoteDataSource()
 
-    fun getRepositories(onRepositoryReadyCallback: OnRepositoryReadyCallback) {
+    fun getRepositories(): Observable<ArrayList<Repository>> {
 
         netManager.isConnectedToInternet?.let {
-            if(it) {
-                remoteDataSource.getRepositories(object : OnRepoRemoteReadyCallback {
-                    override fun onRemoteDataReady(data: ArrayList<Repository>) {
-                        localDataSource.saveRepositories(data)
-                        onRepositoryReadyCallback.onDataReady(data)
-                    }
-                })
-            } else {
-                localDataSource.getRepositories(object : OnRepoLocalReadyCallback {
-                    override fun onLocalDataReady(data: java.util.ArrayList<Repository>) {
-                        onRepositoryReadyCallback.onDataReady(data)
-                    }
-                })
+            if (it) {
+                // todo (2) save remote data to local db
+                remoteDataSource.getRepositories()
             }
         }
-
+        return localDataSource.getRepositories()
     }
-
-    interface OnRepositoryReadyCallback {
-        fun onDataReady(data: ArrayList<Repository>)
-    }
-
 }
