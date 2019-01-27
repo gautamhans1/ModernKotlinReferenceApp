@@ -11,6 +11,6 @@ class MainViewModelFactory(private val repository: GitRepoRepository) : ViewMode
             return MainViewModel(repository) as T
         }
 
-        throw IllegalArgumentException("Unknwon ViewModel class")
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
