@@ -10,8 +10,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class MainViewModel(private var gitRepoRepository: GitRepoRepository) : ViewModel() {
+class MainViewModel @Inject constructor(private var gitRepoRepository: GitRepoRepository) : ViewModel() {
 
     val text = ObservableField("old data")
     var isLoading = ObservableField(false)

@@ -1,21 +1,21 @@
 package com.example.gautam.googlesamplesfetcher
 
-import com.example.gautam.googlesamplesfetcher.data.GitRepoRepository
+import android.arch.lifecycle.ViewModel
+import com.example.gautam.googlesamplesfetcher.utility.di.ViewModelKey
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.android.ContributesAndroidInjector
+import dagger.multibindings.IntoMap
 
 @Module
 internal abstract class MainActivityModule {
 
-    @Module
-    companion object {
-        @JvmStatic
-        @Provides
-        internal fun providesMainViewModelFactory(gitRepoRepository: GitRepoRepository) :MainViewModelFactory {
-            return MainViewModelFactory(gitRepoRepository)
-        }
-    }
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MainViewModel::class)
+    abstract fun bindMainViewModel(viewModel: MainViewModel): ViewModel
+
 
     /* @ContributesAndroidInjector annotation helps Dagger to wire up
     what is needed so we can inject instances in the specified activity.*/

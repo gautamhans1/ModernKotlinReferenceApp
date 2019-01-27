@@ -1,5 +1,6 @@
 package com.example.gautam.googlesamplesfetcher
 
+import com.example.gautam.googlesamplesfetcher.utility.di.ViewModelBuilder
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
@@ -9,7 +10,8 @@ import javax.inject.Singleton
 @Component(
     modules = [AndroidSupportInjectionModule::class,
         AppModule::class,
-        MainActivityModule::class]
+        MainActivityModule::class,
+        ViewModelBuilder::class]
 )
 
 interface AppComponent : AndroidInjector<ModernApplication> {
