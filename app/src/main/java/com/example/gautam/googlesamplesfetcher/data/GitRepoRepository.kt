@@ -3,9 +3,10 @@ package com.example.gautam.googlesamplesfetcher.data
 import com.example.gautam.googlesamplesfetcher.androidmanagers.NetManager
 import com.example.gautam.googlesamplesfetcher.uimodel.Repository
 import io.reactivex.Observable
+import javax.inject.Inject
 
 
-class GitRepoRepository(private val netManager: NetManager) {
+class GitRepoRepository @Inject constructor (var netManager: NetManager) {
 
     private val localDataSource = GitRepoLocalDataSource()
     private val remoteDataSource = GitRepoRemoteDataSource()

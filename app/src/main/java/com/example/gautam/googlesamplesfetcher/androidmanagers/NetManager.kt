@@ -2,17 +2,19 @@ package com.example.gautam.googlesamplesfetcher.androidmanagers
 
 import android.content.Context
 import android.net.ConnectivityManager
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class NetManager(
-    private var applicationContext: Context) {
+@Singleton
+class NetManager @Inject constructor(var applicationContext: Context) {
 
-    private var status : Boolean? = false
+    private var status: Boolean? = false
 
-    val isConnectedToInternet : Boolean
+    val isConnectedToInternet: Boolean
         get() {
-        val conManager = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val networkInfo = conManager.activeNetworkInfo
-        return networkInfo != null && networkInfo.isConnected
-    }
+            val conManager = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val networkInfo = conManager.activeNetworkInfo
+            return networkInfo != null && networkInfo.isConnected
+        }
 
 }
