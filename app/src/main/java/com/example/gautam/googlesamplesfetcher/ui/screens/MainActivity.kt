@@ -1,4 +1,4 @@
-package com.example.gautam.googlesamplesfetcher
+package com.example.gautam.googlesamplesfetcher.ui.screens
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
@@ -6,15 +6,17 @@ import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import com.example.gautam.googlesamplesfetcher.adapters.RepositoryRecyclerViewAdapter
+import com.example.gautam.googlesamplesfetcher.R
+import com.example.gautam.googlesamplesfetcher.ui.rvadapters.RepositoryRecyclerViewAdapter
 import com.example.gautam.googlesamplesfetcher.databinding.ActivityMainBinding
-import com.example.gautam.googlesamplesfetcher.uimodel.Repository
+import com.example.gautam.googlesamplesfetcher.ui.uimodels.Repository
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class MainActivity : DaggerAppCompatActivity(), RepositoryRecyclerViewAdapter.OnItemClickListener {
     lateinit var binding: ActivityMainBinding
-    private val repositoryRecyclerViewAdapter = RepositoryRecyclerViewAdapter(arrayListOf(), this)
+    private val repositoryRecyclerViewAdapter =
+        RepositoryRecyclerViewAdapter(arrayListOf(), this)
     @Inject lateinit var viewModelFactory : ViewModelProvider.Factory
 
     override fun onCreate(savedInstanceState: Bundle?) {

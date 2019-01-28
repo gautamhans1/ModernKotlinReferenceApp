@@ -9,7 +9,7 @@
 
         <variable
             name="repository"
-            type="com.example.gautam.googlesamplesfetcher.uimodel.Repository" />
+            type="com.example.gautam.googlesamplesfetcher.ui.uimodels.Repository" />
     </data>
 
     <android.support.v7.widget.CardView

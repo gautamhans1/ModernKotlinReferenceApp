@@ -1,4 +1,4 @@
-package com.example.gautam.googlesamplesfetcher
+package com.example.gautam.googlesamplesfetcher.ui.screens
 
 import android.arch.lifecycle.ViewModel
 import com.example.gautam.googlesamplesfetcher.utility.di.ViewModelKey

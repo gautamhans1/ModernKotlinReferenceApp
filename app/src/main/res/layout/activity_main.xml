@@ -9,13 +9,13 @@
 
         <variable
             name="viewModel"
-            type="com.example.gautam.googlesamplesfetcher.MainViewModel" />
+            type="com.example.gautam.googlesamplesfetcher.ui.screens.MainViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".ui.screens.MainActivity">
 
 
         <ProgressBar

@@ -1,4 +1,4 @@
-package com.example.gautam.googlesamplesfetcher.extensions
+package com.example.gautam.googlesamplesfetcher.utility.extensions
 
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable

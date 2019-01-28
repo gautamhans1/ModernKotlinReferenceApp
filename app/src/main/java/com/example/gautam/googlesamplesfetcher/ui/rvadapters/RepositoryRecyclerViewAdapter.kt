@@ -1,10 +1,10 @@
-package com.example.gautam.googlesamplesfetcher.adapters
+package com.example.gautam.googlesamplesfetcher.ui.rvadapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.gautam.googlesamplesfetcher.databinding.RvItemRespositoryBinding
-import com.example.gautam.googlesamplesfetcher.uimodel.Repository
+import com.example.gautam.googlesamplesfetcher.ui.uimodels.Repository
 
 class RepositoryRecyclerViewAdapter(
     private var items: ArrayList<Repository>,

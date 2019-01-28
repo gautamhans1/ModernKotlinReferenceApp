@@ -1,11 +1,11 @@
-package com.example.gautam.googlesamplesfetcher
+package com.example.gautam.googlesamplesfetcher.ui.screens
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableField
 import com.example.gautam.googlesamplesfetcher.data.GitRepoRepository
-import com.example.gautam.googlesamplesfetcher.extensions.plusAssign
-import com.example.gautam.googlesamplesfetcher.uimodel.Repository
+import com.example.gautam.googlesamplesfetcher.utility.extensions.plusAssign
+import com.example.gautam.googlesamplesfetcher.ui.uimodels.Repository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver

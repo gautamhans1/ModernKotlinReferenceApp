@@ -1,7 +1,7 @@
 package com.example.gautam.googlesamplesfetcher.data
 
 import com.example.gautam.googlesamplesfetcher.androidmanagers.NetManager
-import com.example.gautam.googlesamplesfetcher.uimodel.Repository
+import com.example.gautam.googlesamplesfetcher.ui.uimodels.Repository
 import io.reactivex.Observable
 import javax.inject.Inject
 

@@ -1,5 +1,6 @@
 package com.example.gautam.googlesamplesfetcher
 
+import com.example.gautam.googlesamplesfetcher.ui.screens.MainActivityModule
 import com.example.gautam.googlesamplesfetcher.utility.di.ViewModelBuilder
 import dagger.Component
 import dagger.android.AndroidInjector
